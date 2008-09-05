@@ -1,8 +1,0 @@
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\ProviderPortal\bin\ProviderPortal.dll
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\ProviderPortal\bin\ProviderPortal.pdb
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\ProviderPortal\bin\DotNetOpenId.dll
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\ProviderPortal\bin\DotNetOpenId.pdb
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\ProviderPortal\bin\DotNetOpenId.xml
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\ProviderPortal\obj\Debug\ResolveAssemblyReference.cache
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\ProviderPortal\obj\Debug\ProviderPortal.dll
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\ProviderPortal\obj\Debug\ProviderPortal.pdb
