@@ -34,6 +34,7 @@ namespace newtelligence.DasBlog.Web
 
 		protected void Application_Start(Object sender, EventArgs e)
 		{
+			log4net.Config.XmlConfigurator.Configure();
 			//We clear out the Cache on App Restart...
             CacheFactory.GetCache().Clear();
 
