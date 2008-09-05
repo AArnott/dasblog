@@ -205,5 +205,12 @@ namespace newtelligence.DasBlog.Web
 				}
 			}
 		}
+
+		protected void OpenIdLogin1_Failed(object sender, OpenIdEventArgs e) {
+			if (e.Response != null && e.Response.Exception != null)
+			{
+				openid_error.Text = e.Response.Exception.Message;
+			}
+		}
 	}
 }

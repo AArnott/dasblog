@@ -20,8 +20,12 @@
 		</tr>
 	</table>
 	<hr />
+	<div>
 		<cc1:OpenIdLogin ID="OpenIdLogin1" runat="server" CssClass="openidLogin"
 		RequestEmail="Require" RequestNickname="Request" RegisterVisible="false" 
-		RememberMeVisible="True" PolicyUrl="~/PrivacyPolicy.aspx" TabIndex="1"
+		RememberMeVisible="True" PolicyUrl="~/PrivacyPolicy.aspx" TabIndex="1" OnFailed="OpenIdLogin1_Failed"
 		/>
+		<br />
+		<asp:Label runat="server" ID="openid_error" EnableViewState="false" ForeColor="Red" />
+	</div>
 </div>
