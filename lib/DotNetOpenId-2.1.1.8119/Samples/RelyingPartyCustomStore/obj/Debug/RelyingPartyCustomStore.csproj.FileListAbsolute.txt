@@ -1,8 +1,0 @@
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\RelyingPartyCustomStore\bin\RelyingPartyCustomStore.dll
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\RelyingPartyCustomStore\bin\RelyingPartyCustomStore.pdb
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\RelyingPartyCustomStore\bin\DotNetOpenId.dll
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\RelyingPartyCustomStore\bin\DotNetOpenId.pdb
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\RelyingPartyCustomStore\bin\DotNetOpenId.xml
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\RelyingPartyCustomStore\obj\Debug\ResolveAssemblyReference.cache
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\RelyingPartyCustomStore\obj\Debug\RelyingPartyCustomStore.dll
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\RelyingPartyCustomStore\obj\Debug\RelyingPartyCustomStore.pdb

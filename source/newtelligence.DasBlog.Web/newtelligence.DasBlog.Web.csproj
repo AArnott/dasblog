@@ -93,7 +93,7 @@
     </Reference>
     <Reference Include="DotNetOpenId, Version=2.1.1.8119, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\DotNetOpenId-2.1.1.8119\Bin\DotNetOpenId.dll</HintPath>
+      <HintPath>..\..\lib\DotNetOpenId.dll</HintPath>
     </Reference>
     <Reference Include="FreeTextBox">
       <Name>FreeTextBox</Name>

@@ -1,8 +1,0 @@
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\RelyingPartyMvc\bin\RelyingPartyMvc.dll
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\RelyingPartyMvc\bin\RelyingPartyMvc.pdb
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\RelyingPartyMvc\bin\DotNetOpenId.dll
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\RelyingPartyMvc\bin\DotNetOpenId.pdb
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\RelyingPartyMvc\bin\DotNetOpenId.xml
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\RelyingPartyMvc\obj\Debug\ResolveAssemblyReference.cache
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\RelyingPartyMvc\obj\Debug\RelyingPartyMvc.dll
-D:\dev\DasBlog\lib\DotNetOpenId-2.1.1.8119\Samples\RelyingPartyMvc\obj\Debug\RelyingPartyMvc.pdb
