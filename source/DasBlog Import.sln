@@ -1,0 +1,77 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "newtelligence.DasBlog.Runtime", "newtelligence.DasBlog.Runtime\newtelligence.DasBlog.Runtime.csproj", "{2B6D1F60-C5D8-4CB9-89D6-A4AF42275852}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DasBlogBlogWorksXMLImport", "DasBlogBlogWorksXMLImport\DasBlogBlogWorksXMLImport.csproj", "{D1CEFEE2-A7F6-4161-B192-29C9C3427FF3}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DasBlogBlogXContentImport", "DasBlogBlogXContentImport\DasBlogBlogXContentImport.csproj", "{EA670495-5C79-4F52-9188-8255D591DDEF}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DasBlog.Import", "Import\DasBlog.Import.csproj", "{D8C2871A-3821-441C-A8F6-F265B18282D5}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DasBlog.Import.Console", "Import\Console\DasBlog.Import.Console.csproj", "{DF49EB37-7D11-490C-BBA8-D4231D0A901C}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DasBlog.Import.Test", "Import\Test\DasBlog.Import.Test.csproj", "{2404AD25-D982-4668-9AD0-E417A5C8C60B}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "newtelligence.DasBlog.Runtime.Proxies", "newtelligence.DasBlog.Runtime.Proxies\newtelligence.DasBlog.Runtime.Proxies.csproj", "{9BAD4DCD-3C05-4716-A406-8B561EF0633F}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "newtelligence.DasBlog.Util", "newtelligence.DasBlog.Util\newtelligence.DasBlog.Util.csproj", "{15C1672E-92A2-4FAF-977A-D7EBC008EC42}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{2B6D1F60-C5D8-4CB9-89D6-A4AF42275852}.Debug.ActiveCfg = Debug|.NET
+		{2B6D1F60-C5D8-4CB9-89D6-A4AF42275852}.Debug.Build.0 = Debug|.NET
+		{2B6D1F60-C5D8-4CB9-89D6-A4AF42275852}.Release.ActiveCfg = Release|.NET
+		{2B6D1F60-C5D8-4CB9-89D6-A4AF42275852}.Release.Build.0 = Release|.NET
+		{D1CEFEE2-A7F6-4161-B192-29C9C3427FF3}.Debug.ActiveCfg = Debug|.NET
+		{D1CEFEE2-A7F6-4161-B192-29C9C3427FF3}.Debug.Build.0 = Debug|.NET
+		{D1CEFEE2-A7F6-4161-B192-29C9C3427FF3}.Release.ActiveCfg = Release|.NET
+		{D1CEFEE2-A7F6-4161-B192-29C9C3427FF3}.Release.Build.0 = Release|.NET
+		{EA670495-5C79-4F52-9188-8255D591DDEF}.Debug.ActiveCfg = Debug|.NET
+		{EA670495-5C79-4F52-9188-8255D591DDEF}.Debug.Build.0 = Debug|.NET
+		{EA670495-5C79-4F52-9188-8255D591DDEF}.Release.ActiveCfg = Release|.NET
+		{EA670495-5C79-4F52-9188-8255D591DDEF}.Release.Build.0 = Release|.NET
+		{D8C2871A-3821-441C-A8F6-F265B18282D5}.Debug.ActiveCfg = Debug|.NET
+		{D8C2871A-3821-441C-A8F6-F265B18282D5}.Debug.Build.0 = Debug|.NET
+		{D8C2871A-3821-441C-A8F6-F265B18282D5}.Release.ActiveCfg = Release|.NET
+		{D8C2871A-3821-441C-A8F6-F265B18282D5}.Release.Build.0 = Release|.NET
+		{DF49EB37-7D11-490C-BBA8-D4231D0A901C}.Debug.ActiveCfg = Debug|.NET
+		{DF49EB37-7D11-490C-BBA8-D4231D0A901C}.Debug.Build.0 = Debug|.NET
+		{DF49EB37-7D11-490C-BBA8-D4231D0A901C}.Release.ActiveCfg = Release|.NET
+		{DF49EB37-7D11-490C-BBA8-D4231D0A901C}.Release.Build.0 = Release|.NET
+		{2404AD25-D982-4668-9AD0-E417A5C8C60B}.Debug.ActiveCfg = Debug|.NET
+		{2404AD25-D982-4668-9AD0-E417A5C8C60B}.Debug.Build.0 = Debug|.NET
+		{2404AD25-D982-4668-9AD0-E417A5C8C60B}.Release.ActiveCfg = Release|.NET
+		{2404AD25-D982-4668-9AD0-E417A5C8C60B}.Release.Build.0 = Release|.NET
+		{9BAD4DCD-3C05-4716-A406-8B561EF0633F}.Debug.ActiveCfg = Debug|.NET
+		{9BAD4DCD-3C05-4716-A406-8B561EF0633F}.Debug.Build.0 = Debug|.NET
+		{9BAD4DCD-3C05-4716-A406-8B561EF0633F}.Release.ActiveCfg = Release|.NET
+		{9BAD4DCD-3C05-4716-A406-8B561EF0633F}.Release.Build.0 = Release|.NET
+		{15C1672E-92A2-4FAF-977A-D7EBC008EC42}.Debug.ActiveCfg = Debug|.NET
+		{15C1672E-92A2-4FAF-977A-D7EBC008EC42}.Debug.Build.0 = Debug|.NET
+		{15C1672E-92A2-4FAF-977A-D7EBC008EC42}.Release.ActiveCfg = Release|.NET
+		{15C1672E-92A2-4FAF-977A-D7EBC008EC42}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

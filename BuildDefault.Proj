@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Compile" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- setup path to msbuild community tasks-->
+  <PropertyGroup>
+    <MSBuildCommunityTasksPath>.</MSBuildCommunityTasksPath>
+  </PropertyGroup>
+  
+  <!-- import tasks-->
+  <Import Project="tools\MSBuildTasks\MSBuild.Community.Tasks.Targets" />
+  <UsingTask AssemblyFile="tools\MSBuildTasks\newtelligence.DasBlog.MSBuildTasks.dll" TaskName="newtelligence.DasBlog.MSBuildTasks.BuildDayTask" />
+
+<!-- properties required for the Version target-->  
+	<PropertyGroup>
+		<Major>2</Major>
+		<Minor>1</Minor>
+		<Build>0</Build>
+		<Revision>0</Revision>
+	</PropertyGroup>
+
+	<Target Name="Version">
+
+		<SvnVersion LocalPath="." ToolPath="tools\svn\">
+			<Output TaskParameter="Revision" PropertyName="Revision" />
+		</SvnVersion>
+
+    <BuildDayTask>
+      <Output TaskParameter="BuildDay" PropertyName="Build" />
+    </BuildDayTask> 
+
+		<Message Text="Version: $(Major).$(Minor).$(Build).$(Revision)"/>
+
+		<AssemblyInfo CodeLanguage="CS"
+					  OutputFile="Source\AssemblyInfo.cs"
+					  AssemblyTitle="dasBlog 2.1"
+					  AssemblyDescription="dasBlog 2.1 ASP.NET Blogging Engine"
+					  AssemblyCompany=""
+					  AssemblyProduct="newtelligence dasBlog"
+					  AssemblyCopyright="Copyright (c) 2007 newtelligence AG"
+					  ComVisible="false"
+					  CLSCompliant="false"
+					  Guid="22F15D36-4E7E-4c9b-A79C-F0A2177EE97B"
+					  AssemblyVersion="$(Major).$(Minor).$(Build).$(Revision)"
+					  AssemblyFileVersion="$(Major).$(Minor).$(Build).$(Revision)"
+					  Condition="$(Build) != '0' AND $(Revision) != '0'"/>
+	</Target>
+
+
+	<!--http://weblogs.asp.net/pwelter34/archive/2005/12/05/432384.aspx-->
+
+
+	<Target Name="Compile" DependsOnTargets="Version">
+		<MSBuild Projects="source\DasBlogUpgrader\DasBlogUpgrader.csproj" Properties="Configuration=Release" Targets="Rebuild" />
+		<MSBuild Projects="source\newtelligence.DasBlog.Web\newtelligence.DasBlog.Web.csproj"  Properties="Configuration=Release" Targets="Rebuild" />
+	</Target>
+
+</Project>

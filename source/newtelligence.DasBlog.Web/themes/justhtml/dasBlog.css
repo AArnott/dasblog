@@ -1,0 +1,191 @@
+/* 
+	DasBlog
+	
+	These are all the DasBlog specific styles that you can
+	use to customize the look and feel fo the content
+*/
+
+.adminNavbarStyle {
+
+}
+
+.blogRollCellStyle {
+}
+
+.blogRollContainerStyle {
+}
+
+.blogRollDescriptionStyle {
+
+}
+
+.blogRollLinkStyle {
+}
+
+.blogRollNestedOutlineBodyTableStyle {
+
+}
+
+.blogRollNestedOutlineTitleCellStyle {
+}
+
+.blogRollTableStyle {
+}
+
+.blogRollXmlLinkStyle {
+}
+
+.bodyContentStyle {
+
+}
+
+.categoryListCellStyle {
+}
+
+.categoryListContainerStyle {
+}
+
+.categoryListExpanded {
+}
+
+.categoryListlinkstyle {
+}
+
+.categoryListNestedOutlineBadgeCellStyle {
+}
+
+.categoryListNestedOutlineBadgeStyle {
+}
+
+.categoryListNestedOutlineBodyTableStyle {
+
+}
+
+.categoryListNestedOutlineContainer {
+}
+
+.categoryListNestedOutlineTitleCellStyle {
+}
+
+.categoryListNestedOutlineTitleStyle {
+}
+
+.categoryListTableStyle {
+}
+
+.categoryListXmlLinkStyle {
+}
+
+.commentBoxFooterStyle {
+
+}
+
+.commentBoxStyle {
+
+}
+
+.commentDateStyle {
+
+}
+
+.date {
+
+}
+
+.description {
+
+}
+
+/*
+	ItemStyle
+*/
+.itemBodyStyle {
+
+}
+
+.itemBoxStyle {
+
+}
+
+.itemCategoryLinksStyle {
+
+}
+
+.itemFooterStyle {
+
+}
+
+.itemReadMoreStyle {
+
+}
+
+.itemTitleStyle {
+
+}
+
+.navigatorLinksCellStyle {
+}
+
+.navigatorLinksContainerStyle {
+}
+
+.navigatorLinksLinkStyle {
+}
+
+.navigatorLinksTableStyle {
+}
+
+.newsItems {
+}
+
+.pageTopic {
+
+}
+
+.side {
+
+}
+
+.sidetitle {
+
+}
+
+.signInPasswordTextBoxStyle {
+	
+}
+
+.signInTableStyle {
+}
+
+.signInUsernameTextBoxStyle {
+
+}
+
+.siteName, .siteName a, .siteName a:visited, .siteName a:hover {
+
+}
+
+.titleListCellStyle {
+}
+
+.titleListStyle {
+}
+
+.trackbackLinkStyle {
+}
+
+
+.commentViewBoxStyle input 
+{
+	border:1px solid #CCCCCC;
+}
+
+.openidtextbox {
+	background: #FFFFFF url('../../images/openid-icon-small.gif') no-repeat scroll 0pt 50%; 
+	padding-left: 18px; 
+}
+
+.openidtextboxwrap 
+{
+	padding-right: 18px;
+}

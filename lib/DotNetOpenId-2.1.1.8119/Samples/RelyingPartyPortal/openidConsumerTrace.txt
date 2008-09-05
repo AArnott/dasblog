@@ -1,0 +1,101 @@
+WebDev.WebServer.exe Information: 0 : Processing GET on http://localhost:49413/Default.aspx 
+WebDev.WebServer.exe Information: 0 : User is NOT authenticated.
+WebDev.WebServer.exe Information: 0 : Processing GET on http://localhost:49413/favicon.ico 
+WebDev.WebServer.exe Information: 0 : User is NOT authenticated.
+WebDev.WebServer.exe Error: 0 : An unhandled exception was raised. Details follow: System.Web.HttpException: File does not exist.
+   at System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   at System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+WebDev.WebServer.exe Information: 0 : Processing POST on http://localhost:49413/Default.aspx 
+WebDev.WebServer.exe Information: 0 : Posted form follows: 
+
+WebDev.WebServer.exe Information: 0 : User is NOT authenticated.
+WebDev.WebServer.exe Information: 0 : Processing GET on http://localhost:49413/login.aspx 
+WebDev.WebServer.exe Information: 0 : Querystring follows: 
+ReturnUrl = '/Default.aspx'
+
+WebDev.WebServer.exe Information: 0 : User is NOT authenticated.
+WebDev.WebServer.exe Information: 0 : Processing GET on http://localhost:49413/WebResource.axd 
+WebDev.WebServer.exe Information: 0 : Querystring follows: 
+d = 'FJEiZ77H9qK6_kDhjEHp8w2'
+t = '633351004200000000'
+
+WebDev.WebServer.exe Information: 0 : User is NOT authenticated.
+WebDev.WebServer.exe Information: 0 : Processing GET on http://localhost:49413/WebResource.axd 
+WebDev.WebServer.exe Information: 0 : Querystring follows: 
+d = '-LVxOz8u99SsDKHhAhFoNe7o5CfERcwBT2rKhmweth41'
+t = '633351004200000000'
+
+WebDev.WebServer.exe Information: 0 : User is NOT authenticated.
+WebDev.WebServer.exe Information: 0 : Processing GET on http://localhost:49413/WebResource.axd 
+WebDev.WebServer.exe Information: 0 : Querystring follows: 
+d = 'Ksbd_TfX_w9p9YHnGHcC6w2'
+t = '633351004200000000'
+
+WebDev.WebServer.exe Information: 0 : User is NOT authenticated.
+WebDev.WebServer.exe Information: 0 : Processing GET on http://localhost:49413/images/yahoo.png 
+WebDev.WebServer.exe Information: 0 : User is NOT authenticated.
+WebDev.WebServer.exe Information: 0 : Processing GET on http://localhost:49413/WebResource.axd 
+WebDev.WebServer.exe Information: 0 : Querystring follows: 
+d = '14YgRd91L00HZF2W9CRxfYliR-9S0Kd400DoyDWBZi91SUnyPKZ5tlKUbiCQy6n9nIk_Ul81Q1cX2m5GlMW7UA2'
+t = '633450232290450000'
+
+WebDev.WebServer.exe Information: 0 : User is NOT authenticated.
+WebDev.WebServer.exe Information: 0 : Processing POST on http://localhost:49413/login.aspx 
+WebDev.WebServer.exe Information: 0 : Querystring follows: 
+ReturnUrl = '/Default.aspx'
+
+WebDev.WebServer.exe Information: 0 : Posted form follows: 
+OpenIdLogin1$wrappedTextBox = 'hanselman'
+yahooLoginButton.x = '94'
+yahooLoginButton.y = '22'
+
+WebDev.WebServer.exe Information: 0 : User is NOT authenticated.
+WebDev.WebServer.exe Information: 0 : Processing POST on http://localhost:49413/login.aspx 
+WebDev.WebServer.exe Information: 0 : Querystring follows: 
+ReturnUrl = '/Default.aspx'
+
+WebDev.WebServer.exe Information: 0 : Posted form follows: 
+OpenIdLogin1$wrappedTextBox = 'hanselman.com'
+OpenIdLogin1$loginButton = 'Login »'
+
+WebDev.WebServer.exe Information: 0 : User is NOT authenticated.
+WebDev.WebServer.exe Information: 0 : Processing GET on http://localhost:49413/login.aspx 
+WebDev.WebServer.exe Information: 0 : Querystring follows: 
+ReturnUrl = '/Default.aspx'
+token = 'K0I4g2R3rExHkkkMIAax4oAI/pRS45i/jK6AtALQzQRodHRwOi8vd3d3LmhhbnNlbG1hbi5jb20vYmxvZy8NCmh0dHA6Ly9zY290dGhhbnNlbG1hbi5teW9wZW5pZC5jb20vDQpodHRwOi8vd3d3Lm15b3BlbmlkLmNvbS9zZXJ2ZXINCjEuMQ0KMjAwOC0wNC0yOVQwNzo0MDozNVpjKEEqNDgnNA0K'
+openid.assoc_handle = '{HMAC-SHA1}{4816d0e4}{Pu1sAQ==}'
+openid.identity = 'http://scotthanselman.myopenid.com/'
+openid.mode = 'id_res'
+openid.op_endpoint = 'http://www.myopenid.com/server'
+openid.response_nonce = '2008-04-29T07:40:39ZiZH3Ed'
+openid.return_to = 'http://localhost:49413/login.aspx?ReturnUrl=%2fDefault.aspx&token=K0I4g2R3rExHkkkMIAax4oAI%2fpRS45i%2fjK6AtALQzQRodHRwOi8vd3d3LmhhbnNlbG1hbi5jb20vYmxvZy8NCmh0dHA6Ly9zY290dGhhbnNlbG1hbi5teW9wZW5pZC5jb20vDQpodHRwOi8vd3d3Lm15b3BlbmlkLmNvbS9zZXJ2ZXINCjEuMQ0KMjAwOC0wNC0yOVQwNzo0MDozNVpjKEEqNDgnNA0K'
+openid.sig = 'iH7aWKU38bn0Vuov8mxyNLyXgco='
+openid.signed = 'assoc_handle,identity,mode,op_endpoint,response_nonce,return_to,signed,sreg.country,sreg.email,sreg.gender,sreg.postcode,sreg.timezone'
+openid.sreg.country = 'US'
+openid.sreg.email = 'scott@hanselman.com'
+openid.sreg.gender = 'M'
+openid.sreg.postcode = '97229'
+openid.sreg.timezone = 'America/Los_Angeles'
+
+WebDev.WebServer.exe Information: 0 : User is NOT authenticated.
+WebDev.WebServer.exe Information: 0 : Processing GET on http://localhost:49413/Default.aspx 
+WebDev.WebServer.exe Information: 0 : User IS authenticated.
+WebDev.WebServer.exe Information: 0 : Processing POST on http://localhost:49413/Default.aspx 
+WebDev.WebServer.exe Information: 0 : Posted form follows: 
+
+WebDev.WebServer.exe Information: 0 : User IS authenticated.
+WebDev.WebServer.exe Information: 0 : Processing GET on http://localhost:49413/Default.aspx 
+WebDev.WebServer.exe Information: 0 : User is NOT authenticated.
+WebDev.WebServer.exe Information: 0 : Processing POST on http://localhost:49413/Default.aspx 
+WebDev.WebServer.exe Information: 0 : Posted form follows: 
+
+WebDev.WebServer.exe Information: 0 : User is NOT authenticated.
+WebDev.WebServer.exe Information: 0 : Processing GET on http://localhost:49413/login.aspx 
+WebDev.WebServer.exe Information: 0 : Querystring follows: 
+ReturnUrl = '/Default.aspx'
+
+WebDev.WebServer.exe Information: 0 : User is NOT authenticated.
+WebDev.WebServer.exe Information: 0 : Processing GET on http://localhost:49413/images/yahoo.png 
+WebDev.WebServer.exe Information: 0 : User is NOT authenticated.
