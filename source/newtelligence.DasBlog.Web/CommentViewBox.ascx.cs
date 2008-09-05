@@ -77,7 +77,15 @@ namespace newtelligence.DasBlog.Web
 		  if (requestPage.SiteConfig.AllowOpenIdComments == true) {
 			  ClaimsResponse fetch = e.Response.GetExtension(typeof(ClaimsResponse)) as ClaimsResponse;
 			  string nick = e.Response.ClaimedIdentifier;
-			  string homepage = e.Response.ClaimedIdentifier;
+			  string homepage;
+			  if (e.Response.ClaimedIdentifier.ToString().StartsWith("http")) 
+			  {
+				  homepage = e.Response.ClaimedIdentifier;
+			  }
+			  else 
+			  {
+				  homepage = "http://xri.net/" + e.Response.ClaimedIdentifier;
+			  }
 			  string email = "none@none.com";
 			  if (fetch != null) {
 				  nick = string.IsNullOrEmpty(fetch.Nickname) ? fetch.FullName : fetch.Nickname;
