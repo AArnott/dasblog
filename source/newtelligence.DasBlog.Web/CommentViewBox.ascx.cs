@@ -70,43 +70,33 @@ namespace newtelligence.DasBlog.Web
       {
       }
 
+	  protected void openid_identifier_LoggedIn(object sender, OpenIdEventArgs e) {
+		  SharedBasePage requestPage = Page as SharedBasePage;
+		  
+		  // only allow users to login using openid when we actually allow it
+		  if (requestPage.SiteConfig.AllowOpenIdComments == true) {
+			  ClaimsResponse fetch = e.Response.GetExtension(typeof(ClaimsResponse)) as ClaimsResponse;
+			  string nick = e.Response.ClaimedIdentifier;
+			  string homepage = e.Response.ClaimedIdentifier;
+			  string email = "none@none.com";
+			  if (fetch != null) {
+				  nick = string.IsNullOrEmpty(fetch.Nickname) ? fetch.FullName : fetch.Nickname;
+				  email = fetch.Email;
+			  }
+
+			  string comment = Request.QueryString["dasblog.comment"];
+			  string entryId = Request.QueryString["dasblog.entryid"];
+			  if (String.IsNullOrEmpty(comment) == false &&
+				 String.IsNullOrEmpty(entryId) == false) {
+				  AddNewComment(nick, email, homepage, comment, entryId, /* openid */ true);
+			  }
+		  }
+	  }
+
       protected void Page_Load(object sender, System.EventArgs e)
       {
 
           SharedBasePage requestPage = Page as SharedBasePage;
-
-          // only allow users to login using openid when we actually allow it
-          if (requestPage.SiteConfig.AllowOpenIdComments == true)
-          {
-              OpenIdRelyingParty openid = new OpenIdRelyingParty();
-              if (openid.Response != null)
-              {
-                  // Stage 3: OpenID Provider sending assertion response
-                  switch (openid.Response.Status)
-                  {
-                      case AuthenticationStatus.Authenticated:
-                          ClaimsResponse fetch = openid.Response.GetExtension(typeof(ClaimsResponse)) as ClaimsResponse;
-                          string nick = openid.Response.ClaimedIdentifier;
-                          string homepage = openid.Response.ClaimedIdentifier;
-                          string email = "none@none.com";
-                          if (fetch != null)
-                          {
-                              nick = string.IsNullOrEmpty(fetch.Nickname) ? fetch.FullName : fetch.Nickname;
-                              email = fetch.Email;
-                          }
-
-                          string comment = Session["pendingComment"] as string;
-                          string entryId = Session["pendingEntryId"] as string;
-                          if (String.IsNullOrEmpty(comment) == false &&
-                             String.IsNullOrEmpty(entryId) == false)
-                          {
-                              AddNewComment(nick, email, homepage, comment, entryId, /* openid */ true);
-                          }
-
-                          break;
-                  }
-              }
-          }
 
          // if you are commenting on your own blog, no need for Captha
          if (SiteSecurity.IsValidContributor())
@@ -314,20 +304,14 @@ namespace newtelligence.DasBlog.Web
          
          if (String.IsNullOrEmpty(openid_identifier.Text) == false && openid_identifier.Text != "Click to Sign In")
          {
-            Session["pendingComment"] = comment.Text;
-            Session["pendingEntryId"] = ViewState["entryId"].ToString().ToUpper();
-            OpenIdRelyingParty openid = new OpenIdRelyingParty();
             try
             {
-               IAuthenticationRequest req = openid.CreateRequest(openid_identifier.Text);
-               ClaimsRequest fetch = new ClaimsRequest();
-               fetch.Email = DemandLevel.Require;
-               fetch.Nickname = DemandLevel.Require;
-               fetch.FullName = DemandLevel.Request;
-               req.AddExtension(fetch);
+				IAuthenticationRequest req = openid_identifier.CreateRequest();
+				req.AddCallbackArguments("dasblog.comment", comment.Text);
+				req.AddCallbackArguments("dasblog.entryid", ViewState["entryId"].ToString().ToUpper());
                SaveCookies();
-               req.RedirectToProvider();
-               return;
+			   openid_identifier.LogOn();
+			   return; // the redirect prevents this line from executing anyway.
             }
             catch (UriFormatException ue) //They've entered something that's not a URI!
             {

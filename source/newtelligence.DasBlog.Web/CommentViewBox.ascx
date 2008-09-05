@@ -1,4 +1,5 @@
 <%@ Register TagPrefix="cc1" Namespace="WebControlCaptcha" Assembly="WebControlCaptcha" %>
+<%@ Register TagPrefix="openid" Namespace="DotNetOpenId.RelyingParty" Assembly="DotNetOpenId" %>
 <%@ Control language="c#" Codebehind="CommentViewBox.ascx.cs" AutoEventWireup="True" Inherits="newtelligence.DasBlog.Web.CommentViewBox" targetSchema="http://schemas.microsoft.com/intellisense/ie5"%>
 <div id="content" runat="server" class="bodyContentStyle">
 <!-- BEGIN ID SELECTOR -->
@@ -23,8 +24,8 @@
 					<asp:RequiredFieldValidator ValidationGroup="OpenId" id="RequiredFieldValidator1" runat="server" ErrorMessage='<%# resmgr.GetString("text_error_openid_name_rf")%>'
 						Display="Dynamic" ControlToValidate="openid_identifier">*</asp:RequiredFieldValidator></TD>
 				<TD width="100%">
-					<asp:TextBox CssClass="openidtextbox" ValidationGroup="OpenId" id="openid_identifier" MaxLength="96" runat="server" Columns="40" 
-						></asp:TextBox></TD>
+					<openid:OpenIdTextBox RequestEmail=Require RequestNickname=Require RequestFullName=Request OnLoggedIn="openid_identifier_LoggedIn"
+					  CssClass="openidtextbox" ValidationGroup="OpenId" id="openid_identifier" MaxLength="96" runat="server" Columns="40" /></TD>
 			</TR>
 			<tr><td colspan="2"><%=resmgr.GetString("text_openid_instructions") %></td></tr>
 		</table>
