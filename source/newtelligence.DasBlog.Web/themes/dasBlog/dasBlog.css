@@ -242,8 +242,7 @@
 }
 
 .openidtextbox {
-	background: #FFFFFF url('../../images/openid-icon-small.gif') no-repeat scroll 0pt 50%; 
-	padding-left: 18px; 
+	background: #FFFFFF; 
 }
 
 .openidtextboxwrap 

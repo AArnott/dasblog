@@ -101,7 +101,7 @@ namespace newtelligence.DasBlog.Web {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetOpenId.RelyingParty.OpenIdTextBox openid_identifier;
+        protected global::DotNetOpenId.RelyingParty.OpenIdAjaxTextBox openid_identifier;
         
         /// <summary>
         /// commentViewTable control.

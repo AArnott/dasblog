@@ -51,6 +51,7 @@ using DotNetOpenId.RelyingParty;
 using DotNetOpenId.Extensions.AttributeExchange;
 using System.Collections.Generic;
 using DotNetOpenId.Extensions.SimpleRegistration;
+using DotNetOpenId;
 
 namespace newtelligence.DasBlog.Web
 {
@@ -70,36 +71,17 @@ namespace newtelligence.DasBlog.Web
       {
       }
 
-	  protected void openid_identifier_LoggedIn(object sender, OpenIdEventArgs e) {
-		  SharedBasePage requestPage = Page as SharedBasePage;
-		  
-		  // only allow users to login using openid when we actually allow it
-		  if (requestPage.SiteConfig.AllowOpenIdComments == true) {
-			  ClaimsResponse fetch = e.Response.GetExtension(typeof(ClaimsResponse)) as ClaimsResponse;
-			  string nick = e.Response.ClaimedIdentifier;
-			  string homepage;
-			  if (e.Response.ClaimedIdentifier.ToString().StartsWith("http")) 
-			  {
-				  homepage = e.Response.ClaimedIdentifier;
-			  }
-			  else 
-			  {
-				  homepage = "http://xri.net/" + e.Response.ClaimedIdentifier;
-			  }
-			  string email = "none@none.com";
-			  if (fetch != null) {
-				  nick = string.IsNullOrEmpty(fetch.Nickname) ? fetch.FullName : fetch.Nickname;
-				  email = fetch.Email;
-			  }
+      protected void openid_identifier_LoggingIn(object sender, OpenIdEventArgs e) {
+         ClaimsRequest fetch = new ClaimsRequest();
+         fetch.Email = DemandLevel.Require;
+         fetch.Nickname = DemandLevel.Require;
+         fetch.FullName = DemandLevel.Request;
+         e.Request.AddExtension(fetch);
+      }
 
-			  string comment = Request.QueryString["dasblog.comment"];
-			  string entryId = Request.QueryString["dasblog.entryid"];
-			  if (String.IsNullOrEmpty(comment) == false &&
-				 String.IsNullOrEmpty(entryId) == false) {
-				  AddNewComment(nick, email, homepage, comment, entryId, /* openid */ true);
-			  }
-		  }
-	  }
+      protected void openid_identifier_UnconfirmedPositiveAssertion(object sender, OpenIdEventArgs e) {
+         openid_identifier.RegisterClientScriptExtension<ClaimsResponse>("sreg");
+      }
 
       protected void Page_Load(object sender, System.EventArgs e)
       {
@@ -120,6 +102,10 @@ namespace newtelligence.DasBlog.Web
 
          if (!IsPostBack)
          {
+             // Help DotNetOpenId understand the URL rewriting dasBlog does
+             // by having it use the rewritten URL instead of the RawUrl.
+             openid_identifier.ReturnToUrl = Request.Url.AbsoluteUri;
+
             if (requestPage.WeblogEntryId.Length == 0)
             {
                requestPage.Redirect(SiteUtilities.GetStartPageUrl(requestPage.SiteConfig));
@@ -306,34 +292,33 @@ namespace newtelligence.DasBlog.Web
           }
       }
 
-      protected void add_Click(object sender, System.EventArgs e)
-      {
+      protected void add_Click(object sender, System.EventArgs e) {
+         if (!Page.IsValid) return;
+
          SharedBasePage requestPage = Page as SharedBasePage;
-         
-         if (String.IsNullOrEmpty(openid_identifier.Text) == false && openid_identifier.Text != "Click to Sign In")
-         {
-            try
-            {
-				IAuthenticationRequest req = openid_identifier.CreateRequest();
-				req.AddCallbackArguments("dasblog.comment", comment.Text);
-				req.AddCallbackArguments("dasblog.entryid", ViewState["entryId"].ToString().ToUpper());
-               SaveCookies();
-			   openid_identifier.LogOn();
-			   return; // the redirect prevents this line from executing anyway.
-            }
-            catch (UriFormatException ue) //They've entered something that's not a URI!
-            {
-               requestPage.LoggingService.AddEvent(new EventDataItem(EventCodes.Error, "ERROR: " + openid_identifier.Text + " is not a valid URL. " + ue.Message, ""));
+         IAuthenticationResponse auth = openid_identifier.AuthenticationResponse;
+         bool openidSuccess = requestPage.SiteConfig.AllowOpenIdComments &&
+             auth != null && auth.Status == AuthenticationStatus.Authenticated;
+         if (openidSuccess) {
+            var claims = auth.GetExtension<ClaimsResponse>();
+            if (claims != null) {
+               if (name.Text.Trim().Length == 0) name.Text = claims.Nickname;
+               if (email.Text.Trim().Length == 0) email.Text = claims.Email;
+               if (homepage.Text.Trim().Length == 0) {
+                  if (auth.ClaimedIdentifier is XriIdentifier) {
+                     homepage.Text = "http://xri.net/" + auth.ClaimedIdentifier;
+                  } else {
+                     homepage.Text = auth.ClaimedIdentifier;
+                  }
+               }
             }
          }
 
-         //Why isn't Page.Valiate("Normal") working? It returns false. Hm.
-         if (name.Text.Trim() != String.Empty)
-         {
+         if (openidSuccess || name.Text.Trim().Length > 0) {
             SaveCookies();
-            AddNewComment(name.Text, email.Text, homepage.Text, comment.Text, ViewState["entryId"].ToString().ToUpper(), /* openid */ false);
-         }  
-    }
+            AddNewComment(name.Text, email.Text, homepage.Text, comment.Text, ViewState["entryId"].ToString().ToUpper(), openidSuccess);
+         }
+      }
 
       private void SaveCookies()
       {

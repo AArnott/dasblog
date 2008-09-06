@@ -2,6 +2,32 @@
 <%@ Register TagPrefix="openid" Namespace="DotNetOpenId.RelyingParty" Assembly="DotNetOpenId" %>
 <%@ Control language="c#" Codebehind="CommentViewBox.ascx.cs" AutoEventWireup="True" Inherits="newtelligence.DasBlog.Web.CommentViewBox" targetSchema="http://schemas.microsoft.com/intellisense/ie5"%>
 <div id="content" runat="server" class="bodyContentStyle">
+<script type="text/javascript">
+	function onOpenIdAssertion(sender) {
+		var homepageBox = document.getElementById('<%= homepage.ClientID %>');
+		var claimedId = sender.getClaimedIdentifier();
+		if (homepageBox.value.length == 0 && claimedId) {
+			if (claimedId.indexOf('http') == 0) {
+				homepageBox.value = claimedId;
+			} else {
+				homepageBox.value = "http://xri.net/" + claimedId;
+			}
+		}
+
+		var emailBox = document.getElementById('<%= email.ClientID %>');
+		var nameBox = document.getElementById('<%= name.ClientID %>');
+		if (sender.sreg) {
+			if (emailBox.value.length == 0 && sender.sreg.email) emailBox.value = sender.sreg.email;
+			if (nameBox.value.length == 0) {
+				if (sender.sreg.fullname) {
+					nameBox.value = sender.sreg.nickname;
+				} else {
+					if (sender.sreg.nickname) nameBox.value = sender.sreg.nickname;
+				}
+			}
+		}
+	}
+</script>
 <!-- BEGIN ID SELECTOR -->
 <script type="text/javascript">
        idselector_input_id = '<%= openid_identifier.ClientID %>';
@@ -24,8 +50,10 @@
 					<asp:RequiredFieldValidator ValidationGroup="OpenId" id="RequiredFieldValidator1" runat="server" ErrorMessage='<%# resmgr.GetString("text_error_openid_name_rf")%>'
 						Display="Dynamic" ControlToValidate="openid_identifier">*</asp:RequiredFieldValidator></TD>
 				<TD width="100%">
-					<openid:OpenIdTextBox RequestEmail=Require RequestNickname=Require RequestFullName=Request OnLoggedIn="openid_identifier_LoggedIn"
-					  CssClass="openidtextbox" ValidationGroup="OpenId" id="openid_identifier" MaxLength="96" runat="server" Columns="40" /></TD>
+					<openid:OpenIdAjaxTextBox id="openid_identifier" runat="server" ValidationGroup="OpenId" 
+						MaxLength="96" Columns="40" CssClass="openidtextbox"
+						OnLoggingIn="openid_identifier_LoggingIn" OnClientAssertionReceived="onOpenIdAssertion(sender)"
+						OnUnconfirmedPositiveAssertion="openid_identifier_UnconfirmedPositiveAssertion" /></TD>
 			</TR>
 			<tr><td colspan="2"><%=resmgr.GetString("text_openid_instructions") %></td></tr>
 		</table>
