@@ -208,7 +208,7 @@ Public Class CaptchaControl
                 _blnUserValidated = True
             Else
                 '-- ok, it's valid, but was it entered quickly enough?
-                _blnUserValidated = Me.GeneratedAt.AddSeconds(Me.CaptchaTimeout) > Now
+                _blnUserValidated = Me.GeneratedAt < DateTime.MaxValue AndAlso Me.GeneratedAt.AddSeconds(Me.CaptchaTimeout) > Now
             End If
         Else
             _blnUserValidated = False
