@@ -52,7 +52,7 @@
 						Display="Dynamic" ControlToValidate="openid_identifier">*</asp:RequiredFieldValidator></TD>
 				<TD width="100%">
 					<openid:OpenIdAjaxTextBox id="openid_identifier" runat="server" ValidationGroup="OpenId" 
-						MaxLength="96" Columns="40" CssClass="openidtextbox"
+						MaxLength="96" Columns="40" CssClass="openidtextbox" TabIndex="1"
 						OnLoggingIn="openid_identifier_LoggingIn" OnClientAssertionReceived="onOpenIdAssertion(sender)"
 						OnUnconfirmedPositiveAssertion="openid_identifier_UnconfirmedPositiveAssertion" /><span id="openidselector"/></TD>
 			</TR>
@@ -64,7 +64,7 @@
 					<asp:RequiredFieldValidator id="validatorRFName" ValidationGroup="Normal" runat="server" ErrorMessage='<%# resmgr.GetString("text_error_person_name_rf")%>'
 						Display="Dynamic" ControlToValidate="name">*</asp:RequiredFieldValidator></TD>
 				<TD width="100%">
-					<asp:TextBox id="name" MaxLength="32" runat="server" ValidationGroup="Normal" Columns="40" CssClass="commentViewControlStyle"
+					<asp:TextBox id="name" MaxLength="32" runat="server" ValidationGroup="Normal" Columns="40" CssClass="commentViewControlStyle" TabIndex="2"
 						Width="99%"></asp:TextBox></TD>
 			</TR>
 			<TR>
@@ -73,7 +73,7 @@
 						Display="Dynamic" ControlToValidate="email" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*</asp:RegularExpressionValidator></TD>
 				<TD nowrap>
 					<asp:TextBox MaxLength="40" id="email" runat="server" ValidationGroup="Normal" Columns="60" CssClass="commentViewControlStyle"
-						Width="99%"></asp:TextBox>
+						Width="99%" TabIndex="3"></asp:TextBox>
 					<span id="commentsGravatarEnabled" class="gravatarLabel" runat="server">
 						<br>
 						<asp:Label ID="labelGravatarEnabled" Runat="server" CssClass="commentViewLabelStyle" Text='<%# resmgr.GetString("text_comment_gravatarable") %>' >
@@ -85,7 +85,7 @@
 				<TD nowrap><asp:Label id="Label3" runat="server" CssClass="commentViewLabelStyle" Text='<%# resmgr.GetString("text_person_homepage") %>'></asp:Label></TD>
 				<TD>
 					<asp:TextBox MaxLength="64" id="homepage" runat="server"  Columns="60" CssClass="commentViewControlStyle"
-						Width="99%"></asp:TextBox></TD>
+						Width="99%" TabIndex="4"></asp:TextBox></TD>
 			</TR>
 			<TR>
 				<TD noWrap colspan="2">
@@ -94,7 +94,7 @@
 			<TR>
 				<TD></TD>
 				<TD>
-					<P><asp:CheckBox id="rememberMe" runat="server" Text='<%# resmgr.GetString("text_person_remember") %>' Checked="True" CssClass="commentViewControlStyle"></asp:CheckBox></P>
+					<P><asp:CheckBox TabIndex="5" id="rememberMe" runat="server" Text='<%# resmgr.GetString("text_person_remember") %>' Checked="True" CssClass="commentViewControlStyle"></asp:CheckBox></P>
 				</TD>
 			</TR>
 			<TR>
@@ -106,9 +106,9 @@
 			<TR>
 				<TD colSpan="2" noWrap>
 					<asp:TextBox Rows="12" Columns="60" id="comment" runat="server" TextMode="MultiLine" CssClass="commentViewControlStyle livepreview"
-						Width="99%"></asp:TextBox>
+						Width="99%" TabIndex="6"></asp:TextBox>
 					<P></P>
-					<cc1:CaptchaControl CaptchaFontWarping="Extreme" id=CaptchaControl1 runat="server" Text='<%# resmgr.GetString("text_captcha")%>' ShowSubmitButton="False" CaptchaTimeout="300" CaptchaFont="Verdana">
+					<cc1:CaptchaControl TabIndex="7" CaptchaFontWarping="Extreme" id=CaptchaControl1 runat="server" Text='<%# resmgr.GetString("text_captcha")%>' ShowSubmitButton="False" CaptchaTimeout="300" CaptchaFont="Verdana">
 					</cc1:CaptchaControl>
 					<asp:CustomValidator id="cvCaptcha" runat="server" Display="None" ErrorMessage='<%# resmgr.GetString("text_captcha_error")%>'></asp:CustomValidator>
 				</TD>
@@ -124,7 +124,7 @@
 			<TR>
 				<TD colSpan="2" noWrap>
 					<div style="WIDTH:50%;TEXT-ALIGN:left"><asp:ValidationSummary id="ValidationSummary1" runat="server"></asp:ValidationSummary></div>
-					<asp:Button id="add" OnClick="add_Click" runat="server" Text='<%# resmgr.GetString("text_save_comment") %>' CssClass="commentViewControlStyle" >
+					<asp:Button id="add" TabIndex="8" OnClick="add_Click" runat="server" Text='<%# resmgr.GetString("text_save_comment") %>' CssClass="commentViewControlStyle" >
 					</asp:Button>
 				</TD>
 			</TR>
