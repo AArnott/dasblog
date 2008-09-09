@@ -30,7 +30,8 @@
 </script>
 <!-- BEGIN ID SELECTOR -->
 <script type="text/javascript">
-       idselector_input_id = '<%= openid_identifier.ClientID %>';
+	idselector_input_id = '<%= openid_identifier.ClientID %>';
+	idselector_target_id = 'openidselector';
 </script>
 <script type="text/javascript" id="__openidselector" src="https://www.idselector.com/selector/f2b823bfcf61d5c04bd1d839321fa4e360d307f3" charset="utf-8"></script>
 <!-- END ID SELECTOR -->
@@ -53,7 +54,7 @@
 					<openid:OpenIdAjaxTextBox id="openid_identifier" runat="server" ValidationGroup="OpenId" 
 						MaxLength="96" Columns="40" CssClass="openidtextbox"
 						OnLoggingIn="openid_identifier_LoggingIn" OnClientAssertionReceived="onOpenIdAssertion(sender)"
-						OnUnconfirmedPositiveAssertion="openid_identifier_UnconfirmedPositiveAssertion" /></TD>
+						OnUnconfirmedPositiveAssertion="openid_identifier_UnconfirmedPositiveAssertion" /><span id="openidselector"/></TD>
 			</TR>
 			<tr><td colspan="2"><%=resmgr.GetString("text_openid_instructions") %></td></tr>
 		</table>
